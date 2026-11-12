@@ -134,7 +134,7 @@
   <style>
     /* =====================================================
        AllecoBox — palette sampled from clearbags.com
-       amber #F9B85D / berry #f37961 / charcoal #333 / grey #F5F5F5
+       amber #F9B85D / berry #F37961 / charcoal #333 / grey #F5F5F5
        ===================================================== */
     :root {
       --amber: #f9b85d;
@@ -142,8 +142,8 @@
       --amber-deep: #e8973b;
       --amber-soft: #fff6e8;
       --berry: #f37961;
-      --berry-dark: #9c1546;
-      --berry-soft: #fbe9f0;
+      --berry-dark: #dd6450;
+      --berry-soft: #fff1ed;
       --ink: #1f1f1f;
       --ink-2: #333333;
       --ink-3: #6b6b6b;
@@ -179,7 +179,7 @@
     .btn-outline { background: #fff; color: var(--ink); border-color: var(--amber-deep); }
     .btn-outline:hover { background: var(--amber-soft); border-color: var(--amber-2); }
     .btn-light { background: #fff; color: var(--berry); }
-    .btn-light:hover { background: #fff3f7; }
+    .btn-light:hover { background: #fff2ee; }
     .btn-sm { padding: 10px 20px; font-size: 14px; }
 
     /* ===== Announcement bar (berry) ===== */
@@ -199,7 +199,7 @@
     header.site-header { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid var(--line); }
     .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 78px; }
     .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
-    .logo avif { width: 40px; height: 40px; }
+    .logo img { height: 46px; width: auto; display: block; }
     .logo .word { font-size: 23px; font-weight: 800; letter-spacing: -.02em; color: var(--ink); line-height: 1; }
     .logo .word span { color: var(--amber-deep); }
     .logo .tag { display: block; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--amber-deep); font-weight: 600; margin-top: 3px; }
@@ -259,7 +259,7 @@
     }
     .hv-cell svg { width: 64%; height: 64%; }
     .hv-cell:nth-child(5n+1) { background: var(--amber-soft); border-color: #f7e3c4; }
-    .hv-cell:nth-child(7n+3) { background: var(--berry-soft); border-color: #f6dde6; }
+    .hv-cell:nth-child(7n+3) { background: var(--berry-soft); border-color: #fbe0d8; }
     .hv-badge {
       position: absolute; bottom: -16px; left: 50%; transform: translateX(-50%);
       background: var(--ink); color: #fff; font-size: 12.5px; font-weight: 700;
@@ -358,7 +358,7 @@
 
     /* ===== CTA band ===== */
     .cta-band {
-      background: linear-gradient(115deg, var(--berry) 0%, #8f1240 55%, #6d0e31 100%);
+      background: linear-gradient(115deg, var(--berry) 0%, #d95842 55%, #b8402e 100%);
       border-radius: var(--radius-lg); color: #fff; padding: 56px 44px;
       display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center;
     }
@@ -452,8 +452,11 @@
   <header class="site-header">
     <div class="container nav">
       <a class="logo" href="https://allecobox.com/" aria-label="AllecoBox — custom packaging boxes manufacturer">
-        <svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="8" fill="#f9b85d"/><path d="M9 15l11-7 11 7-11 7-11-7zm0 4v11l11 7v-11L9 19zm22-4v11l-11 7v-11l11-7z" fill="#2b2b2b"/></svg>
-        <span class="word">Alleco<span>Box</span><span class="tag">Packaging with purpose</span></span>
+        <!-- 换成您的 logo：把 logo.avif 放在 index.html 同级的 assets/ 目录即可。
+             若文件不存在，会自动回退到内嵌的 PNG（下方 onerror），页面不会开天窗。 -->
+        <img src="assets/logo.avif" alt="AllecoBox — custom packaging boxes manufacturer"
+             width="343" height="66"
+             onerror="this.onerror=null;this.src='data:image/png;base64,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';">
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Main navigation">
@@ -606,7 +609,7 @@
 
           <a class="cat-card" href="/boxes/food-box/">
             <div class="cat-visual tint-b">
-              <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M15 24h34l-4 26H19z" fill="#f9b85d"/><path d="M11 17h42l-4 7H15z" fill="#e8973b"/><rect x="24" y="33" width="16" height="10" rx="1" fill="#fbe9f0"/><path d="M28 38h8" stroke="#f37961" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M15 24h34l-4 26H19z" fill="#f9b85d"/><path d="M11 17h42l-4 7H15z" fill="#e8973b"/><rect x="24" y="33" width="16" height="10" rx="1" fill="#fff1ed"/><path d="M28 38h8" stroke="#f37961" stroke-width="2" stroke-linecap="round"/></svg>
             </div>
             <span class="num">06</span>
             <h3>Food Box</h3>
