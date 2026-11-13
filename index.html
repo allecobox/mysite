@@ -223,14 +223,37 @@
     .nav-toggle { display: none; background: none; border: 1px solid var(--line); border-radius: var(--radius); padding: 8px; cursor: pointer; }
     .nav-toggle svg { width: 22px; height: 22px; stroke: var(--ink); }
 
-    /* ===== Hero ===== */
+    /* ===== Hero (light video background) ===== */
     .hero {
-      background:
-        radial-gradient(70% 100% at 85% 0%, var(--amber-soft) 0%, transparent 60%),
-        linear-gradient(180deg, #fffdf9 0%, #ffffff 100%);
+      background: linear-gradient(180deg, #fffdf9 0%, #ffffff 100%);
       border-bottom: 1px solid var(--line);
       padding: 76px 0 80px; position: relative; overflow: hidden;
     }
+    .hero-video {
+      position: absolute; inset: 0; z-index: 0; overflow: hidden;
+      background:
+        radial-gradient(70% 100% at 85% 0%, var(--amber-soft) 0%, transparent 60%),
+        linear-gradient(180deg, #fffdf9 0%, #ffffff 100%);
+    }
+    .hero-video video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      opacity: .55; filter: saturate(.9) contrast(1.02);
+    }
+    .hero-video::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(110deg,
+        rgba(255,253,249,.94) 0%, rgba(255,253,249,.86) 38%, rgba(255,253,249,.30) 100%);
+    }
+    .hero .container.hero-grid { position: relative; z-index: 2; }
+    .hero-vbtn {
+      position: absolute; right: 22px; bottom: 16px; z-index: 3;
+      display: inline-flex; align-items: center;
+      border: 1px solid rgba(51,51,51,.16); border-radius: 999px;
+      background: rgba(255,255,255,.86); color: var(--ink-2);
+      font: 600 11.5px/1 var(--font); letter-spacing: .06em; text-transform: uppercase;
+      padding: 8px 14px; cursor: pointer; backdrop-filter: blur(6px);
+    }
+    .hero-vbtn:hover { background: #fff; border-color: rgba(51,51,51,.30); }
     .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center; }
     .eyebrow {
       display: inline-flex; align-items: center; gap: 8px; background: var(--amber-soft);
@@ -469,6 +492,24 @@
       .cat-grid { gap: 10px; }
       .step .lead { min-height: 0; }
     }
+    /* Hero video: no video on small screens, show poster / light fallback */
+    @media (max-width: 768px) {
+      .hero-video video { display: none; }
+      .hero-vbtn { display: none; }
+      .hero-video {
+        background:
+          url('assets/poster.jpg') center / cover no-repeat,
+          radial-gradient(70% 100% at 85% 0%, var(--amber-soft) 0%, transparent 60%),
+          linear-gradient(180deg, #fffdf9 0%, #ffffff 100%);
+      }
+      .hero-video::after {
+        background: linear-gradient(110deg, rgba(255,253,249,.93) 0%, rgba(255,253,249,.78) 100%);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video video { display: none; }
+      .hero-vbtn { display: none; }
+    }
   </style>
 </head>
 
@@ -544,8 +585,15 @@
 
   <main>
 
-    <!-- ===== Hero ===== -->
+    <!-- ===== Hero (light video background) ===== -->
     <section class="hero">
+      <div class="hero-video" aria-hidden="true">
+        <video id="heroVideo" autoplay muted loop playsinline preload="metadata"
+               poster="assets/poster.jpg" fetchpriority="high">
+          <source src="assets/poster.mp4" type="video/mp4" media="(min-width: 769px)">
+        </video>
+      </div>
+      <button class="hero-vbtn" id="heroVbtn" type="button" aria-label="Pause background video">Pause</button>
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">Factory Direct · 15 Box Structures</span>
@@ -1073,6 +1121,38 @@
     links.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') links.classList.remove('open');
     });
+
+    /* Hero video: skip downloading on mobile / reduced motion, pause control */
+    (function () {
+      var v = document.getElementById('heroVideo');
+      var b = document.getElementById('heroVbtn');
+      if (!v) return;
+      /* Poster image is optional - drop the attribute if it 404s, keep light fallback */
+      var probe = new Image();
+      probe.onerror = function () { v.removeAttribute('poster'); };
+      probe.src = 'assets/poster.jpg';
+      var small = window.matchMedia('(max-width: 768px)').matches;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (small || reduce) {
+        v.pause();
+        v.removeAttribute('autoplay');
+        Array.prototype.forEach.call(v.querySelectorAll('source'), function (s) { s.remove(); });
+        v.removeAttribute('src');
+        v.load();
+        if (b) b.style.display = 'none';
+      }
+      if (b) b.addEventListener('click', function () {
+        if (v.paused) {
+          v.play();
+          b.textContent = 'Pause';
+          b.setAttribute('aria-label', 'Pause background video');
+        } else {
+          v.pause();
+          b.textContent = 'Play';
+          b.setAttribute('aria-label', 'Play background video');
+        }
+      });
+    })();
   </script>
 
 </body>
