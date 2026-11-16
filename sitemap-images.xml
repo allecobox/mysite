@@ -5309,4 +5309,12 @@
       <image:title>Custom Packaging for Homeobox controller 188120 by AllecoBox</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://allecobox.com/about/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/allecoboxshow.avif</image:loc>
+      <image:title>AllecoBox factory floor in Shenzhen — workers assembling custom packaging boxes on production lines</image:title>
+    </image:image>
+  </url>
 </urlset>
