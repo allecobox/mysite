@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://allecobox.com/sitemap.xml
+Sitemap: https://allecobox.com/sitemap-images.xml
