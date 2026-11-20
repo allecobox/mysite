@@ -5317,4 +5317,99 @@
       <image:title>AllecoBox factory floor in Shenzhen — workers assembling custom packaging boxes on production lines</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://allecobox.com/industries/</loc>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/2-giftbox/mockup-361011.avif</image:loc>
+      <image:title>Gift Box — cosmetics packaging by AllecoBox</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/6-foodbox/12389749.avif</image:loc>
+      <image:title>Food Box — food packaging by AllecoBox</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/9-traybox/12510293.avif</image:loc>
+      <image:title>Tray Box — jewelry packaging by AllecoBox</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/4-transportbox/11375112.avif</image:loc>
+      <image:title>Transport Box — electronics packaging by AllecoBox</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://allecobox.com/industries/cosmetics/</loc>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/2-giftbox/mockup-361011.avif</image:loc>
+      <image:title>Gift Box — cosmetic and skincare rigid box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/12-boxwithlid/11363130.avif</image:loc>
+      <image:title>Box with Lid — cosmetic presentation box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/9-traybox/12510293.avif</image:loc>
+      <image:title>Tray Box — cosmetic drawer box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/14-insertbox/11351576.avif</image:loc>
+      <image:title>Insert Box — cosmetic case with fitted insert</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://allecobox.com/industries/food/</loc>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/6-foodbox/12389749.avif</image:loc>
+      <image:title>Food Box — food-grade takeaway box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/10-boxwithwindow/12242727.avif</image:loc>
+      <image:title>Box with Window — bakery window box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/8-foldbox/158130-white-board-66.avif</image:loc>
+      <image:title>Fold Box — burger and fast food box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/7-displaybox/12380169.avif</image:loc>
+      <image:title>Display Box — countertop bakery display</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://allecobox.com/industries/jewelry/</loc>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/2-giftbox/mockup-361011.avif</image:loc>
+      <image:title>Gift Box — jewelry rigid gift box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/9-traybox/12510293.avif</image:loc>
+      <image:title>Tray Box — jewelry drawer box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/15-polygonalbox/112700-white-board-6.avif</image:loc>
+      <image:title>Polygonal Box — special-shape jewelry box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/14-insertbox/11351576.avif</image:loc>
+      <image:title>Insert Box — jewelry insert box</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://allecobox.com/industries/electronics/</loc>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/4-transportbox/11375112.avif</image:loc>
+      <image:title>Transport Box — electronics shipping box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/3-mailbox/11352597.avif</image:loc>
+      <image:title>Mail Box — electronics mailer box</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/14-insertbox/11351576.avif</image:loc>
+      <image:title>Insert Box — electronics fitted insert</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://allecobox.com/assets/5-productbox/12509096.avif</image:loc>
+      <image:title>Product Box — electronics retail carton</image:title>
+    </image:image>
+  </url>
 </urlset>
