@@ -67,7 +67,6 @@
   "@id": "https://allecobox.com/#organization",
   "sameAs": [
     "https://www.youtube.com/@allecobox",
-    "https://www.instagram.com/allecobox",
     "https://www.facebook.com/allecobox"
   ],
   "foundingDate": "2014",
@@ -527,7 +526,7 @@
 
     /* ===== Footer ===== */
     footer.site-footer { background: var(--ink); color: #b9b9b9; font-size: 14px; padding: 56px 0 26px; }
-    .foot-grid { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.5fr; gap: 36px; margin-bottom: 40px; }
+    .foot-grid { display: grid; grid-template-columns: 1.35fr .85fr 1fr .95fr 1.35fr; gap: 36px; margin-bottom: 40px; }
     .foot-grid h4 { color: #fff; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 16px; }
     .foot-grid ul li { margin-bottom: 9px; }
     .foot-grid a:hover { color: var(--amber); }
@@ -641,7 +640,31 @@
       .hero-video video { display: none; }
       .hero-vbtn { display: none; }
     }
-  </style>
+  
+    /* ===== Industries dropdown in header (same treatment as BOX TYPES) ===== */
+    .has-mega.ind { position: relative; }
+    .has-mega.ind > a { display: inline-flex; align-items: center; gap: 5px; }
+    .has-mega.ind .caret { font-size: 9px; line-height: 1; opacity: .8; }
+    .mega-ind {
+      position: absolute; top: calc(100% + 8px); left: -14px; width: 272px; background: #fff;
+      border: 1px solid #ececec; border-radius: 12px; box-shadow: 0 20px 44px rgba(31,31,31,.14);
+      padding: 14px 8px 10px; opacity: 0; visibility: hidden; transform: translateY(-6px);
+      transition: opacity .18s, transform .18s, visibility .18s; z-index: 130; text-align: left;
+    }
+    .has-mega.ind:hover .mega-ind, .has-mega.ind:focus-within .mega-ind { opacity: 1; visibility: visible; transform: none; }
+    .mega-ind .mega-title {
+      font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: #8a8a8a;
+      font-weight: 700; padding: 0 10px 8px; margin: 0;
+    }
+    .mega-ind a {
+      display: block; padding: 9px 10px; border-radius: 8px; font-size: 13.5px; font-weight: 600;
+      color: #333; text-decoration: none; letter-spacing: 0; text-transform: none; border: 0; background: none;
+    }
+    .mega-ind a:hover { background: #faf7f4; color: #F37961; padding-left: 10px; }
+    .mega-ind .mega-more { font-size: 12px; font-weight: 700; color: #F37961; margin-top: 2px; }
+    .mega-ind .mega-more:hover { background: transparent; text-decoration: underline; }
+    @media (max-width: 860px) { .has-mega.ind .mega-ind { display: none; } }
+</style>
 </head>
 
 <body>
@@ -700,7 +723,17 @@
             </div>
           </div>
         </div>
-        <a href="/industries/">Industries</a>
+        <div class="has-mega ind">
+          <a href="/industries/" aria-haspopup="true">Industries <span class="caret" aria-hidden="true">▾</span></a>
+          <div class="mega-ind" role="region" aria-label="Packaging by industry">
+            <p class="mega-title">Packaging by industry</p>
+            <a href="/industries/cosmetics/">Cosmetic &amp; Skincare</a>
+            <a href="/industries/food/">Food &amp; Bakery</a>
+            <a href="/industries/jewelry/">Jewelry</a>
+            <a href="/industries/electronics/">Electronics</a>
+            <a class="mega-more" href="/industries/">All industries →</a>
+          </div>
+        </div>
         <a href="/about/">About</a>
         <a href="#factory">Our Factory</a>
         <a href="/contact/">Contact</a>
@@ -959,52 +992,52 @@
           <p>Ten of our most-requested structures — pick one and we'll send a free dieline and factory quote within 24 hours.</p>
         </div>
         <div class="fp-grid">
-          <a class="fp-card" href="/boxes/square-box">
+          <a class="fp-card" href="/boxes/square-box/">
             <div class="fp-visual"><img src="assets/1-square-box/10445212.avif" alt="Square transport box — custom packaging box by AllecoBox" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgYXJpYS1oaWRkZW49InRydWUiPjxwYXRoIGQ9Ik0zMiAxNWwxOCA5LTE4IDktMTgtOXoiIGZpbGw9IiNmZmQ5YTMiLz48cGF0aCBkPSJNMTQgMjRsMTggOXYxOGwtMTgtOXoiIGZpbGw9IiNmOWI4NWQiLz48cGF0aCBkPSJNNTAgMjRMMzIgMzN2MThsMTgtOXoiIGZpbGw9IiNlODk3M2IiLz48L3N2Zz4='"></div>
             <h3>Square Box</h3>
             <span class="fp-tag">Rigid</span>
           </a>
-          <a class="fp-card" href="/boxes/gift-box">
+          <a class="fp-card" href="/boxes/gift-box/">
             <div class="fp-visual"><img src="assets/2-giftbox/mockup-361011.avif" alt="Flip up board game box — custom packaging box by AllecoBox" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgYXJpYS1oaWRkZW49InRydWUiPjxwYXRoIGQ9Ik0xMCAyNGg0NGwtNSAyNEgxNXoiIGZpbGw9IiNmOWI4NWQiLz48cGF0aCBkPSJNMTAgMjRoNDRsLTIgN0gxMnoiIGZpbGw9IiNlODk3M2IiLz48cmVjdCB4PSIyOSIgeT0iMjQiIHdpZHRoPSI2IiBoZWlnaHQ9IjI0IiBmaWxsPSIjZjM3OTYxIi8+PHBhdGggZD0iTTMyIDE3Yy00LTYtMTEtNS0xMS0xczYgMyAxMSAxem0wIDBjNC02IDExLTUgMTEtMXMtNiAzLTExIDF6IiBmaWxsPSIjZjM3OTYxIi8+PC9zdmc+'"></div>
             <h3>Gift Box</h3>
             <span class="fp-tag">Best Seller</span>
           </a>
-          <a class="fp-card" href="/boxes/mail-box">
+          <a class="fp-card" href="/boxes/mail-box/">
             <div class="fp-visual"><img src="assets/3-mailbox/11352597.avif" alt="Flip cover mailing box packaging — custom packaging box by AllecoBox" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgYXJpYS1oaWRkZW49InRydWUiPjxyZWN0IHg9IjkiIHk9IjIwIiB3aWR0aD0iNDYiIGhlaWdodD0iMjYiIHJ4PSIyIiBmaWxsPSIjZjliODVkIi8+PHBhdGggZD0iTTkgMjBsMjMgMTUgMjMtMTUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzhhNWExNyIgc3Ryb2tlLXdpZHRoPSIyLjYiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNOSA0NmwxNi0xM001NSA0NkwzOSAzMyIgc3Ryb2tlPSIjOGE1YTE3IiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjM1IiByPSIzLjQiIGZpbGw9IiNmMzc5NjEiLz48L3N2Zz4='"></div>
             <h3>Mail Box</h3>
             <span class="fp-tag">E-commerce</span>
           </a>
-          <a class="fp-card" href="/boxes/transport-box">
+          <a class="fp-card" href="/boxes/transport-box/">
             <div class="fp-visual"><img src="assets/4-transportbox/11375112.avif" alt="Plug in product box — custom packaging box by AllecoBox" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgYXJpYS1oaWRkZW49InRydWUiPjxyZWN0IHg9IjkiIHk9IjIwIiB3aWR0aD0iNDYiIGhlaWdodD0iMjgiIHJ4PSIyIiBmaWxsPSIjZDlhMDViIi8+PHJlY3QgeD0iMjgiIHk9IjIwIiB3aWR0aD0iNyIgaGVpZ2h0PSIyOCIgZmlsbD0iI2YzNzk2MSIvPjxwYXRoIGQ9Ik0xNiAyOGg4TTE2IDM1aDYiIHN0cm9rZT0iIzhhNWExNyIgc3Ryb2tlLXdpZHRoPSIyLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxwYXRoIGQ9Ik00MCAzM2g5bS05IDBsMy0zbS0zIDNsMyAzIiBzdHJva2U9IiM4YTVhMTciIHN0cm9rZS13aWR0aD0iMi4yIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4='"></div>
             <h3>Transport Box</h3>
             <span class="fp-tag">Heavy Duty</span>
           </a>
-          <a class="fp-card" href="/boxes/product-box">
+          <a class="fp-card" href="/boxes/product-box/">
             <div class="fp-visual"><img src="assets/5-productbox/12509096.avif" alt="Hanging medicine box — custom packaging box by AllecoBox" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgYXJpYS1oaWRkZW49InRydWUiPjxyZWN0IHg9IjkiIHk9IjE4IiB3aWR0aD0iNDYiIGhlaWdodD0iMzAiIHJ4PSIyIiBmaWxsPSIjZjliODVkIi8+PHJlY3QgeD0iOSIgeT0iMTgiIHdpZHRoPSI0NiIgaGVpZ2h0PSI3IiBmaWxsPSIjZTg5NzNiIi8+PHJlY3QgeD0iMTgiIHk9IjMwIiB3aWR0aD0iMjgiIGhlaWdodD0iMTIiIHJ4PSIxIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTIzIDM2aDE4IiBzdHJva2U9IiNmMzc5NjEiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNMjMgMzN2Nk00MSAzM3Y2IiBzdHJva2U9IiNlNmM5YTMiIHN0cm9rZS13aWR0aD0iMS42Ii8+PC9zdmc+'"></div>
             <h3>Product Box</h3>
             <span class="fp-tag">Retail Ready</span>
           </a>
-          <a class="fp-card" href="/boxes/food-box">
+          <a class="fp-card" href="/boxes/food-box/">
             <div class="fp-visual"><img src="assets/6-foodbox/12389749.avif" alt="French fry container — custom packaging box by AllecoBox" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgYXJpYS1oaWRkZW49InRydWUiPjxwYXRoIGQ9Ik0xNSAyNGgzNGwtNCAyNkgxOXoiIGZpbGw9IiNmOWI4NWQiLz48cGF0aCBkPSJNMTEgMTdoNDJsLTQgN0gxNXoiIGZpbGw9IiNlODk3M2IiLz48cmVjdCB4PSIyNCIgeT0iMzMiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxMCIgcng9IjEiIGZpbGw9IiNmZmYxZWQiLz48cGF0aCBkPSJNMjggMzhoOCIgc3Ryb2tlPSIjZjM3OTYxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg=='"></div>
             <h3>Food Box</h3>
             <span class="fp-tag">Food Safe</span>
           </a>
-          <a class="fp-card" href="/boxes/display-box">
+          <a class="fp-card" href="/boxes/display-box/">
             <div class="fp-visual"><img src="assets/7-displaybox/12380169.avif" alt="Window baking display box — custom packaging box by AllecoBox" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgYXJpYS1oaWRkZW49InRydWUiPjxyZWN0IHg9IjkiIHk9IjQyIiB3aWR0aD0iNDYiIGhlaWdodD0iMTAiIHJ4PSIxLjUiIGZpbGw9IiNlODk3M2IiLz48cmVjdCB4PSIxMyIgeT0iMzAiIHdpZHRoPSIzOCIgaGVpZ2h0PSIxMiIgcng9IjEuNSIgZmlsbD0iI2Y5Yjg1ZCIvPjxyZWN0IHg9IjE3IiB5PSIxOCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjEyIiByeD0iMS41IiBmaWxsPSIjZmZkOWEzIi8+PHBhdGggZD0iTTIyIDIzaDIwTTIyIDI3aDEzIiBzdHJva2U9IiNjOWEwNmEiIHN0cm9rZS13aWR0aD0iMS42IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4='"></div>
             <h3>Display Box</h3>
             <span class="fp-tag">Countertop</span>
           </a>
-          <a class="fp-card" href="/boxes/fold-box">
+          <a class="fp-card" href="/boxes/fold-box/">
             <div class="fp-visual"><img src="assets/8-foldbox/158130-white-board-66.avif" alt="Burger box fast food paper 158130 — custom packaging box by AllecoBox" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgYXJpYS1oaWRkZW49InRydWUiPjxyZWN0IHg9IjEwIiB5PSIxNiIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlODk3M2IiIHN0cm9rZS13aWR0aD0iMiIvPjxyZWN0IHg9IjI2IiB5PSIxNiIgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlODk3M2IiIHN0cm9rZS13aWR0aD0iMiIvPjxyZWN0IHg9IjQyIiB5PSIxNiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjE0IiBmaWxsPSJub25lIiBzdHJva2U9IiNlODk3M2IiIHN0cm9rZS13aWR0aD0iMiIvPjxyZWN0IHg9IjEwIiB5PSIzMiIgd2lkdGg9IjI2IiBoZWlnaHQ9IjE4IiBmaWxsPSIjZjlkN2E4Ii8+PHJlY3QgeD0iMzgiIHk9IjMyIiB3aWR0aD0iMTYiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2U4OTczYiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+'"></div>
             <h3>Fold Box</h3>
             <span class="fp-tag">Flat-Pack</span>
           </a>
-          <a class="fp-card" href="/boxes/tray-box">
+          <a class="fp-card" href="/boxes/tray-box/">
             <div class="fp-visual"><img src="assets/9-traybox/12510293.avif" alt="Drawer box — custom packaging box by AllecoBox" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgYXJpYS1oaWRkZW49InRydWUiPjxwYXRoIGQ9Ik0xMCAyMmw2LTZoMzJsNiA2LTQgMjJIMTR6IiBmaWxsPSIjZjliODVkIi8+PHBhdGggZD0iTTE2IDIyaDMybC0zIDE2SDE5eiIgZmlsbD0iI2ZmZDlhMyIvPjxwYXRoIGQ9Ik0xNiAyMmgzMiIgc3Ryb2tlPSIjZTg5NzNiIiBzdHJva2Utd2lkdGg9IjIuNCIvPjxwYXRoIGQ9Ik0yMiAyOGgyMCIgc3Ryb2tlPSIjYzlhMDZhIiBzdHJva2Utd2lkdGg9IjEuNiIgc3Ryb2tlLWRhc2hhcnJheT0iMyAzIi8+PC9zdmc+'"></div>
             <h3>Tray Box</h3>
             <span class="fp-tag">Sleeve</span>
           </a>
-          <a class="fp-card" href="/boxes/box-with-window">
+          <a class="fp-card" href="/boxes/box-with-window/">
             <div class="fp-visual"><img src="assets/10-boxwithwindow/12242727.avif" alt="Mountain shaped box with window — custom packaging box by AllecoBox" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgYXJpYS1oaWRkZW49InRydWUiPjxyZWN0IHg9IjkiIHk9IjE4IiB3aWR0aD0iNDYiIGhlaWdodD0iMzAiIHJ4PSIyIiBmaWxsPSIjZjliODVkIi8+PHJlY3QgeD0iOSIgeT0iMTgiIHdpZHRoPSI0NiIgaGVpZ2h0PSI3IiBmaWxsPSIjZTg5NzNiIi8+PHJlY3QgeD0iMTciIHk9IjI5IiB3aWR0aD0iMzAiIGhlaWdodD0iMTQiIHJ4PSIxIiBmaWxsPSIjZmZmIiBzdHJva2U9IiNmMzc5NjEiIHN0cm9rZS13aWR0aD0iMiIvPjxwYXRoIGQ9Ik0xNyA0M2w3LTYgNiA0IDUtNSA3IDciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YzNzk2MSIgc3Ryb2tlLXdpZHRoPSIxLjYiLz48L3N2Zz4='"></div>
             <h3>Box with Window</h3>
             <span class="fp-tag">Clear Window</span>
