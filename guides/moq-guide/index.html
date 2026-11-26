@@ -298,5 +298,30 @@
       </div>
     </div>
   </footer>
+<!-- ===== WhatsApp click tracking (GA4 G-TWHCNSKZR5) ===== -->
+<script>
+(function () {
+  function bindWA() {
+    if (typeof gtag !== 'function') return;
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      var a = (t && t.closest) ? t.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="web.whatsapp.com"]') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      var text = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 120);
+      var m = decodeURIComponent(href).match(/SKU\s*([A-Z0-9-]+)/i);
+      gtag('event', 'whatsapp_click', {
+        link_text: text,
+        link_url: href.slice(0, 500),
+        sku: m ? m[1] : '',
+        page_path: location.pathname,
+        transport_type: 'beacon'
+      });
+    }, true);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindWA);
+  else bindWA();
+})();
+</script>
 </body>
 </html>
